@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>C.A.R.D.S. Pro Dashboard Tabulator Proof</title>
+    <link
+      href="https://unpkg.com/tabulator-tables/dist/css/tabulator_midnight.min.css"
+      rel="stylesheet"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="dashboard-shell">
+      <section class="topbar" aria-label="Collection overview">
+        <div>
+          <p class="eyebrow">C.A.R.D.S. Pro Dashboard</p>
+          <h1>NBA Card Inventory</h1>
+        </div>
+        <div class="metrics" aria-label="Inventory metrics">
+          <div class="metric">
+            <span class="metric-value" id="totalCards">0</span>
+            <span class="metric-label">Cards</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value" id="totalValue">$0</span>
+            <span class="metric-label">Total Value</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value" id="gradedCards">0</span>
+            <span class="metric-label">Graded</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="Table controls">
+        <label class="search-wrap" for="playerSearch">
+          <span>Search Player</span>
+          <input
+            id="playerSearch"
+            type="search"
+            autocomplete="off"
+            placeholder="Jordan, Curry, Clark..."
+          />
+        </label>
+        <button id="clearSearch" type="button">Clear</button>
+      </section>
+
+      <section class="table-section" aria-label="Card table">
+        <div id="cardsTable"></div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
