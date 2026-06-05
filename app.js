@@ -148,6 +148,11 @@ const table = new Tabulator("#cardsTable", {
 
 const searchInput = document.getElementById("playerSearch");
 const clearButton = document.getElementById("clearSearch");
+const exportButton = document.getElementById("exportCsv");
+
+function refreshVisibleMetrics() {
+  updateMetrics(table.getData("active"));
+}
 
 searchInput.addEventListener("input", () => {
   const query = searchInput.value.trim();
@@ -163,5 +168,16 @@ clearButton.addEventListener("click", () => {
   table.clearFilter();
   searchInput.focus();
 });
+
+exportButton.addEventListener("click", () => {
+  table.download("csv", "cards-inventory.csv");
+});
+
+table.on("dataFiltered", (_filters, rows) => {
+  updateMetrics(rows.map((row) => row.getData()));
+});
+
+table.on("dataLoaded", refreshVisibleMetrics);
+table.on("tableBuilt", refreshVisibleMetrics);
 
 updateMetrics(cards);

@@ -108,6 +108,13 @@ h1 {
   font-weight: 700;
 }
 
+.toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 .search-wrap input {
   width: 100%;
   min-height: 42px;
@@ -291,6 +298,14 @@ button:hover {
 
   .metrics {
     grid-template-columns: 1fr;
+  }
+
+  .toolbar-actions {
+    justify-content: stretch;
+  }
+
+  .toolbar-actions button {
+    flex: 1 1 140px;
   }
 
   h1 {
